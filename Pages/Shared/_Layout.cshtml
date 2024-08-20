@@ -68,7 +68,7 @@
                              <li><a class="dropdown-item" href="~/Electricity/FaradeyLaw">Faradey law and inductive EMF</a></li>
                             </ul>
                         </div>
-                        <div class="dropdown user-admin">
+                        <div class="dropdown">
                             <a class="btn  dropdown-toggle text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Admin   </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="~/Admin/Admin">Manage Users</a></li>                               
@@ -103,33 +103,6 @@
                 const userOnlyElements = document.querySelectorAll(".user-only");
                 userOnlyElements.forEach(element => {
                     element.style.display = 'block';
-                });
-            </script>
-        }
-        @if (string.IsNullOrEmpty(sessionValue))
-        {
-            <script>
-                const userOnlyElements = document.querySelectorAll(".user-only");
-                userOnlyElements.forEach(element => {
-                    element.style.display = 'none';
-                });
-            </script>
-        }
-        @if (sessionAdmin  == "Admin")
-        {
-            <script>
-                const adminOnlyElements = document.querySelectorAll(".user-admin");
-                adminOnlyElements.forEach(element => {
-                    element.style.display = 'block';
-                });
-            </script>
-        }
-        @if (sessionAdmin != "Admin")
-        {
-            <script>
-                const adminOnlyElements = document.querySelectorAll(".user-admin");
-                adminOnlyElements.forEach(element => {
-                    element.style.display = 'none';
                 });
             </script>
         }

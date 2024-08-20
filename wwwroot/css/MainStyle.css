@@ -8,6 +8,6 @@
     margin-top: 10px;
     margin-left:35%;
 }
-.user-only, .user-admin {
-    display: none;
+.user-only{
+    display:none;
 }

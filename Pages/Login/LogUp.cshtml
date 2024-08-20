@@ -1,0 +1,55 @@
+﻿@page
+@model CorePhisics.Pages.Login.LogUpModel
+@{
+}
+
+<script src="~/js/LogUp.js"></script>
+<div>
+    <h1 style="margin-left:40%;">Log Up Form</h1>
+</div>
+<div class="row justify-content-center align-itms-center">
+    <div class="col-sm-11 col-md-9 col-lg-7 col-xl-5">
+        <div class="card h-100">
+            <div class="card-header"<h1>Login</h1>
+                    <div class="card-body">
+                        <form method="post">
+
+                            <label>User First Name</label>
+                             <input type="text" name="firstName" id="fName" onkeyup="checkName(this, 'fmsg')" />
+                            <span id="fmsg" class="messages" > </span><br/>
+
+                             <label>User Last Name</label>
+                            <input type="text" name="lastName" id="lName" onkeyup="checkName(this, 'lmsg')" />                           
+                            <span id="fmsg" class="messages" > </span><br/>
+
+                            <label>User Name</label>
+                            <input type="text" name="userName" id="userName" onkeyup="checkUName(this, 'umsg')" />
+                             <span id="umsg" class="messages" > </span><br/>
+
+                            <label>Password</label>
+                            <input type="password" name="password" id="password" onkeyup="checkPass(this)" />
+                             <span id="pmsg" class="messages" > </span><br/>
+
+                            <label>E-Mail</label>
+                           <input  type="email" id="email" name="email"  id="email" onkeyup="checkEmail(this)" />
+                           <span id="emsg" class="messages" > </span><br/>
+
+                            <label>Phone</label>
+                             <input type="tel" name="phone"  id="tel" onkeyup="checkTel(this)" />
+                            <span id="tmsg" class="messages" > </span><br/>
+
+                            <lable>Birth Date</label>
+                            <input  type="date" name="dName" id="dName" name="dName" >
+                            <span id="dmsg" class="messages" > </span><br/>
+
+                            <input type="submit" name="submit" class="logup" value="LogUp" onclick="return register1()" />
+                            <input type="reset" class="reset" value="RESET" onclick="reset1()" />
+
+                            <div class="mb-3 form-text text-danger " id="msgBox">
+                                   @Model.msg
+                            </div>
+                        </form>
+                    <div>
+            </div>
+        </div>
+    </div>
