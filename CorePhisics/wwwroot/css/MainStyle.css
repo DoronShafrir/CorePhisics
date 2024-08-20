@@ -1,0 +1,13 @@
+﻿body {
+}
+.main{
+    margin-left : 30%;
+    
+}
+.video{
+    margin-top: 10px;
+    margin-left:35%;
+}
+.user-only{
+    display:none;
+}

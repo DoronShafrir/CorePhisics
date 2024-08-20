@@ -1,0 +1,32 @@
+﻿@page
+@model CorePhisics.Pages.Admin.AdminModel
+@{
+}
+<div class="container">
+    <h2 style="margin-left:25%;" > Users Management Page</h2>
+    <form method="post">
+    <div class="flex-container">
+
+         <input type="submit" name="submit" class="Admin" value="Show Users" />
+   
+        <div>
+            <input type="text" id="searchText" name="searchText" placeholder="name or last name" />
+        </div>
+        <div>
+            <input type="button"  id="search" value="Search" onserverclick="Search_Name" runat="server" />
+        </div>
+    
+         <div>
+            <input type="text"  id="deleteText" name="deleteText" placeholder="UserName to delete" />
+        </div>
+         <div>
+            <input id="delete" type="button" value="Delete" onserverclick="Delete_User" runat="server" />
+        </div>
+    </div>
+  </form>
+  </br></br>
+     <div>
+        @Html.Raw(Model.TableDiv)
+    </div>
+
+</div>

@@ -1,0 +1,117 @@
+﻿﻿@using Microsoft.AspNetCore.Http
+@{
+    var sessionValue = Context.Session.GetString("Username");
+    var sessionAdmin = Context.Session.GetString("Admin");
+    var sessionFirst = Context.Session.GetString("Admin");
+  
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CorePhysics</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CorePhisics.styles.css" asp-append-version="true" />
+    <link href="~/css/MainStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">CorePhysics</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            @* <a class="nav-link text-dark " asp-area="" asp-page="/Index">Phisics</a> *@
+                            <a class="btn   text-dark " href="Index" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Phisics  </a>
+                        </li>
+                        <div class="dropdown">
+                            <a class="btn  dropdown-toggle text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Login   </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="~/Login/Login">LogIn</a></li>
+                                <li><a class="dropdown-item" href="~/Login/Logup">LogUp</a></li>
+                                <li><a class="dropdown-item" href="~/Login/Exit">Exit</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown user-only">
+                            <a class="btn  dropdown-toggle text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Mechanics </a>
+                            <ul class="dropdown-menu">
+                             <li><a class="dropdown-item" href="~/Mechanics/Kinematics">Kinematics</a></li>
+                             <li><a class="dropdown-item" href="~/Mechanics/Dynamics">Dynamics</a></li>
+                             <li><a class="dropdown-item" href="~/Mechanics/CircularMotion">Circular Motion</a></li>
+                             <li><a class="dropdown-item" href="~/Mechanics/Energy">Energy</a></li>
+                             <li><a class="dropdown-item" href="~/Mechanics/Momentum">Momentum and Impulse</a></li>
+                             <li><a class="dropdown-item" href="~/Mechanics/Gravitation">Gravitation</a></li>
+                             <li><a class="dropdown-item" href="~/Mechanics/HarmonicalOscilation">Harmonical Oscilation</a></li>
+                        
+                            </ul>
+                        </div>
+                        <div class="dropdown user-only">
+                            <a class="btn  dropdown-toggle text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Electricity </a>
+                            <ul class="dropdown-menu">
+                             <li><a class="dropdown-item" href="~/Electricity/ElectricityColonLaw">Electricity and Colon law</a></li>
+                                <li><a class="dropdown-item" href="~/Electricity/ElectricalField">Electical Field</a></li>
+                                <li><a class="dropdown-item" href="~/Electricity/ElectricPotential">Electic Potential Energy</a></li>
+                             <li><a class="dropdown-item" href="~/Electricity/CurrentResistance">Current and Resistance</a></li>
+                             <li><a class="dropdown-item" href="~/Electricity/DC">DC Circuits</a></li>
+                                <li><a class="dropdown-item" href="~/Electricity/MagnecticField">Magnets and Magnet Field</a></li>
+                             <li><a class="dropdown-item" href="~/Electricity/FaradeyLaw">Faradey law and inductive EMF</a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown">
+                            <a class="btn  dropdown-toggle text-dark " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Admin   </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="~/Admin/Admin">Manage Users</a></li>                               
+                            </ul>
+                        </div>
+
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - CorePhisics - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+    @if (!string.IsNullOrEmpty(sessionValue))
+    {
+        @if (!string.IsNullOrEmpty(sessionValue))
+        {
+            <script>
+                const userOnlyElements = document.querySelectorAll(".user-only");
+                userOnlyElements.forEach(element => {
+                    element.style.display = 'block';
+                });
+            </script>
+        }
+    }
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
